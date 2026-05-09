@@ -551,7 +551,7 @@
     }
 
     /* ========================================
-       GALLERY / INSTAGRAM FEED
+       GALLERY / INSTAGRAM EMBED
        ======================================== */
     .gallery {
       background: var(--bg-medium);
@@ -565,87 +565,32 @@
 
     .gallery-header .section-subtitle { margin: 0 auto; }
 
-    .ig-feed-grid {
+    .ig-embed-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
+      gap: 24px;
+      max-width: 1080px;
+      margin: 0 auto;
     }
 
-    .ig-feed-item {
-      position: relative;
-      aspect-ratio: 1;
+    .ig-embed-item {
+      min-width: 0;
       overflow: hidden;
-      cursor: pointer;
-      background: linear-gradient(135deg, #1A1A1A, #111111);
-      border: none;
-      transition: filter 0.3s;
+      border-radius: 4px;
     }
 
-    .ig-feed-item:hover { filter: brightness(1.1); }
-
-    .ig-feed-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s var(--transition-smooth);
-    }
-
-    .ig-feed-item:hover img { transform: scale(1.05); }
-
-    .ig-feed-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(26, 18, 14, 0.75) 0%, transparent 50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .ig-feed-item:hover .ig-feed-overlay { opacity: 1; }
-
-    .ig-feed-overlay svg { width: 24px; height: 24px; color: var(--cream); }
-
-    .ig-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #1A1A1A, #111111);
-      border: 1px solid rgba(255, 170, 0, 0.12);
-    }
-
-    .ig-placeholder-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: white;
-    }
-
-    .ig-placeholder p {
-      font-size: 0.8rem;
-      color: var(--taupe);
-      text-align: center;
-      line-height: 1.5;
-      padding: 0 16px;
+    .ig-embed-item .instagram-media {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
     }
 
     .ig-follow-row {
       text-align: center;
-      margin-top: 32px;
+      margin-top: 48px;
     }
 
-    .ig-follow-row .btn {
+    .ig-follow-row .btn { {
       border: 1px solid rgba(255, 170, 0, 0.3);
       color: var(--gold);
       padding: 12px 28px;
@@ -658,32 +603,8 @@
       border-color: var(--gold);
     }
 
-    .ig-loading {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 60px 0;
-    }
-
-    .ig-loading .spinner {
-      width: 32px;
-      height: 32px;
-      border: 2px solid rgba(255, 170, 0, 0.2);
-      border-top-color: var(--gold);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 12px;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .ig-loading p { color: var(--taupe); font-size: 0.85rem; }
-
     @media (max-width: 768px) {
-      .ig-feed-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 480px) {
-      .ig-feed-grid { grid-template-columns: 1fr; }
+      .ig-embed-grid { grid-template-columns: 1fr; gap: 16px; }
     }
 
     /* ========================================
@@ -1039,17 +960,30 @@
     </div>
   </section>
 
-  <!-- GALERI / INSTAGRAM FEED -->
+  <!-- GALERI / INSTAGRAM -->
   <section class="gallery section-padding" id="galeri">
     <div class="container">
       <div class="gallery-header reveal">
         <p class="section-label">Galeri</p>
         <h2 class="section-title">Ikuti Kami di <span>Instagram</span></h2>
         <p class="section-subtitle">
-          Intip keseharian dan aksi terbaru dari latihan Janissary Archery. Follow dan klik foto untuk melihat selengkapnya.
+          Momen terbaik dari latihan dan kegiatan Janissary Archery. Klik untuk melihat selengkapnya.
         </p>
       </div>
-      <div class="ig-feed-grid" id="igFeedGrid"></div>
+      <div class="ig-embed-grid">
+        <div class="ig-embed-item reveal">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C2Gwp-ix4-I/?utm_source=ig_embed" data-instgrm-version="14">
+          </blockquote>
+        </div>
+        <div class="ig-embed-item reveal">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cxkx8oCR-ob/?utm_source=ig_embed" data-instgrm-version="14">
+          </blockquote>
+        </div>
+        <div class="ig-embed-item reveal">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C3XNKH2OUgk/?utm_source=ig_embed" data-instgrm-version="14">
+          </blockquote>
+        </div>
+      </div>
       <div class="ig-follow-row reveal">
         <a href="https://www.instagram.com/janissaryarcheryofficial/" target="_blank" rel="noopener" class="btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -1278,37 +1212,6 @@
     if (statsGrid) statsObserver.observe(statsGrid);
 
     /* ========================================
-       INSTAGRAM FEED — STATIC GALLERY GRID
-       ======================================== */
-    const igFeedGrid = document.getElementById('igFeedGrid');
-    const IG_PROFILE_URL = 'https://www.instagram.com/janissaryarcheryofficial/';
-
-    const galleryImages = [
-      { src: 'poster janissary 1.png', label: 'Janissary Archery' },
-      { src: 'https://images.unsplash.com/photo-1611508319852-c1ef480e424e?w=600&h=600&fit=crop', label: 'Latihan Rutin' },
-      { src: 'https://images.unsplash.com/photo-1530878955558-a6c31b9c97db?w=600&h=600&fit=crop', label: 'Busur Tradisional' },
-      { src: 'https://images.unsplash.com/photo-1597655601841-214a4cfe8b2c?w=600&h=600&fit=crop', label: 'Komunitas' },
-      { src: 'https://images.unsplash.com/photo-1559761374-9b8c8f55a60f?w=600&h=600&fit=crop', label: 'Target Latihan' },
-      { src: 'https://images.unsplash.com/photo-1580537659469-ae4c2d9eb2a7?w=600&h=600&fit=crop', label: 'Kompetisi' },
-    ];
-
-    igFeedGrid.innerHTML = '';
-    galleryImages.forEach(img => {
-      const item = document.createElement('a');
-      item.className = 'ig-feed-item reveal';
-      item.href = IG_PROFILE_URL;
-      item.target = '_blank';
-      item.rel = 'noopener';
-      item.innerHTML = `
-        <img src="${img.src}" alt="${img.label}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\\'ig-placeholder\\'><div class=\\'ig-placeholder-icon\\'>📸</div><p>Lihat di Instagram</p></div>'">
-        <div class="ig-feed-overlay">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </div>
-      `;
-      igFeedGrid.appendChild(item);
-    });
-
-    /* ========================================
        SMOOTH SCROLL FOR NAV LINKS
        ======================================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1323,6 +1226,8 @@
       });
     });
   </script>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
 
 </body>
 </html>
